@@ -1,5 +1,4 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.5.0;
 
 contract PatientDataManager {
     struct Patient {
@@ -24,19 +23,19 @@ contract PatientDataManager {
     }
 
     function updatePatientData(uint256 _patientId, bytes32 _newDataHash) external {
-        require(msg.sender == patients[_patientId].doctor, "Only the assigned doctor can update patient data.");
+        require(isAuthorized(_patientId, msg.sender), "Only authorized users can update patient data.");
         patients[_patientId].dataHash = _newDataHash;
         emit PatientDataUpdated(_patientId, _newDataHash);
     }
 
     function grantAccess(uint256 _patientId, address _user) external {
-        require(msg.sender == patients[_patientId].doctor, "Only the assigned doctor can grant access.");
+        require(isAuthorized(_patientId, msg.sender), "Only authorized users can grant access.");
         patients[_patientId].authorizedUsers.push(_user);
         emit AccessGranted(_patientId, _user);
     }
 
     function revokeAccess(uint256 _patientId, address _user) external {
-        require(msg.sender == patients[_patientId].doctor, "Only the assigned doctor can revoke access.");
+        require(isAuthorized(_patientId, msg.sender), "Only authorized users can revoke access.");
         for (uint256 i = 0; i < patients[_patientId].authorizedUsers.length; i++) {
             if (patients[_patientId].authorizedUsers[i] == _user) {
                 patients[_patientId].authorizedUsers[i] = patients[_patientId].authorizedUsers[patients[_patientId].authorizedUsers.length - 1];
@@ -48,11 +47,12 @@ contract PatientDataManager {
     }
 
     function isAuthorized(uint256 _patientId, address _user) public view returns (bool) {
-        if (msg.sender == patients[_patientId].doctor) {
+        Patient storage patient = patients[_patientId];
+        if (_user == patient.doctor) {
             return true;
         }
-        for (uint256 i = 0; i < patients[_patientId].authorizedUsers.length; i++) {
-            if (patients[_patientId].authorizedUsers[i] == _user) {
+        for (uint256 i = 0; i < patient.authorizedUsers.length; i++) {
+            if (patient.authorizedUsers[i] == _user) {
                 return true;
             }
         }
