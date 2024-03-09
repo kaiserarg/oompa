@@ -1,0 +1,12 @@
+{
+    "name": "blockchain",
+    "version": "1.0.0",
+    "description": "Blockchain component for patient data management",
+    "scripts": {
+      "test": "truffle test"
+    },
+    "dependencies": {
+      "@truffle/contract": "^4.3.26",
+      "truffle": "^5.3.0"
+    }
+}
