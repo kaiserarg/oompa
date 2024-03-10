@@ -1,0 +1,40 @@
+/* styles/Header.css */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 200px;
+  right: 0;
+  z-index: 100;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px; /* Added margin bottom */
+}
+
+.patient-alert {
+  display: flex;
+  align-items: center;
+}
+
+.patient-alert-icon {
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+.patient-alert-counter {
+  background-color: #ff6347;
+  color: #fff;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 14px;
+}
