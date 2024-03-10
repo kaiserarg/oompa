@@ -1,0 +1,52 @@
+/* styles/Content.css */
+.content {
+  position: absolute;
+  top: 70px; /* Adjusted top value */
+  left: 200px;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  color: #f9f9f9;
+}
+
+.header-containers {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 20;
+  margin-top: 20px; /* Added margin top */
+}
+
+.status {
+  width: 15%;
+  padding-left: 10px;
+}
+
+.sort-icon {
+  width: 18px;
+  height: 18px;
+  padding-left: 5px;
+  margin-right: 10px;
+  fill: currentColor;
+}
+
+.patient {
+  width: 15%;
+  padding-left: 10px;
+}
+
+.alert {
+  width: 40%;
+  padding-left: 10px;
+}
+
+.time-of-alert {
+  width: 15%;
+  padding-left: 10px;
+}
+
+.chart {
+  width: 15%;
+  padding-left: 10px;
+}
