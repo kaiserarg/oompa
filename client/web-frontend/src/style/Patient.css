@@ -1,0 +1,38 @@
+/* styles/Patient.css */
+.patient-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .patient-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .patient-status {
+    width: 15%;
+    padding-left: 10px;
+  }
+  
+  .patient-name {
+    width: 15%;
+    padding-left: 10px;
+  }
+  
+  .patient-alert {
+    width: 40%;
+    padding-left: 10px;
+  }
+  
+  .patient-time {
+    width: 15%;
+    padding-left: 10px;
+  }
+  
+  .patient-chart {
+    width: 15%;
+    padding-left: 10px;
+  }
